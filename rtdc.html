@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rama Computer Center Admin Login</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff0066, #ff6699);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+/* Main Box */
+
+.login-box {
+    width: 100%;
+    max-width: 390px;
+    background: #fff0f6;
+    border: 5px solid #d91b62;
+    border-radius: 22px;
+    padding: 32px 32px 38px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+
+h1 {
+    color: #007bff;
+    font-size: 26px;
+    margin-bottom: 17px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+/* Input Fields */
+
+input, select {
+    width: 100%;
+    height: 36px;
+    border: none;
+    outline: none;
+    border-radius: 9px;
+    padding: 8px 11px;
+    font-size: 14px;
+    background: #eeeeee;
+    margin-bottom: 13px;
+}
+
+input:focus, select:focus {
+    box-shadow: 0 0 5px #007bff;
+}
+
+/* Remember Me */
+
+.remember {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 10px 0 25px;
+    font-size: 14px;
+}
+
+.remember input {
+    width: 17px;
+    height: 17px;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+}
+
+/* Buttons */
+
+button {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 9px;
+    transition: 0.3s;
+}
+
+.submit-btn {
+    background: #087bfa;
+}
+
+.change-btn {
+    background: #f50057;
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+
+/* Forgot Password */
+
+.forgot {
+    display: inline-block;
+    color: #007bff;
+    font-size: 14px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+/* Message */
+
+#message {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Mobile Responsive */
+
+@media(max-width: 400px) {
+    .login-box {
+        padding: 28px 22px 32px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h1>Rama Computer Center</h1>
+
+    <h3>Admin Login</h3>
+
+    <form id="loginForm">
+
+        <input type="text"
+        id="username"
+        placeholder="Enter Username"
+        required>
+
+        <input type="password"
+        id="password"
+        placeholder="Enter Password"
+        required>
+
+        <select id="branch" required>
+            <option value="">Select Branch</option>
+            <option value="Main Branch">Main Branch</option>
+            <option value="Branch 1">Branch 1</option>
+            <option value="Branch 2">Branch 2</option>
+            <option value="Branch 3">Branch 3</option>
+        </select>
+
+        <div class="remember">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
+        </div>
+
+        <p id="message"></p>
+
+        <button type="submit" class="submit-btn">
+            Submit
+        </button>
+
+        <button type="button" class="change-btn"
+        onclick="changeDetails()">
+            Change Username & Password
+        </button>
+
+        <a class="forgot" onclick="forgotPassword()">
+            Forgot Password?
+        </a>
+
+    </form>
+
+</div>
+
+<script>
+
+// Demo Admin Login Details
+const adminUsername = "admin";
+const adminPassword = "12345";
+
+document.getElementById("loginForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value;
+    let branch = document.getElementById("branch").value;
+
+    let message = document.getElementById("message");
+
+    if(username === adminUsername &&
+       password === adminPassword) {
+
+        message.style.color = "green";
+        message.innerText = "Login Successfully!";
+
+        setTimeout(function() {
+            alert("Welcome Admin!\nBranch: " + branch);
+        }, 500);
+
+    } else {
+        message.style.color = "red";
+        message.innerText = "Invalid Username or Password!";
+    }
+
+});
+
+// Change Details
+function changeDetails() {
+    alert("Username & Password change karne ke liye Admin Verification zaroori hai.");
+}
+
+// Forgot Password
+function forgotPassword() {
+    alert("Please contact your institute administrator to reset your password.");
+}
+
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
